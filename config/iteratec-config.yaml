@@ -1,0 +1,16 @@
+mqtt:
+  client:
+    protocol: 4      # MQTTv311
+  connection:
+    host: traze.iteratec.de
+    port: 1883
+    keepalive: 60
+bridge:
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: mqtt_itera.msg:ticker
+    topic_from: traze/1/ticker
+    topic_to: /traze/1/ticker
+  #- factory: mqtt_bridge.bridge:MqttToRosBridge
+  #  msg_type: mqtt_itera.msg:grid
+  #  topic_from: traze/1/grid
+  #  topic_to: /traze/1/grid

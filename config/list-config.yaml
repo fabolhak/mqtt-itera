@@ -1,0 +1,12 @@
+mqtt:
+  client:
+    protocol: 4      # MQTTv311
+  connection:
+    host: localhost
+    port: 1883
+    keepalive: 60
+bridge:
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: mqtt_itera.msg:list
+    topic_from: ping
+    topic_to: /ping
